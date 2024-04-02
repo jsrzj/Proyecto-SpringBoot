@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Upload</title>
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/upload.css">
+	<script src="https://kit.fontawesome.com/9f04fd84f4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<form id="formulario" th:method="post" th:action="@{/subirVideo}" th:object="${videoForm}" enctype="multipart/form-data">
+		<input class="input" type="file" name="file">
+		<input class="input" type="text" th:field="*{titulo}" placeholder="Título del video" required>
+		<input id="inputSubmitSubir" type="submit" value="SUBIR">
+		<a th:href="@{/}">Atrás</a>
+	</form>
+</body>
+</html>

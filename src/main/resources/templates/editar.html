@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Editar</title>
+	<link rel="stylesheet" href="css/header.css">
+	<script src="https://kit.fontawesome.com/9f04fd84f4.js" crossorigin="anonymous"></script>
+	<style>
+		* {
+	 		font-family: "Roboto", "Arial", sans-serif;
+		}
+		
+		body {
+	    	background-color: rgb(33, 37, 41);
+	    	margin: 0;
+	    	padding: 0;
+		}
+		
+		header {
+		    background-color: rgb(15, 15, 15);
+		    width: 100%;
+		    height: 85px;
+		    top: 0;
+		    left: 0;
+		    position: sticky;
+		    z-index: 9999;
+		}
+		
+		#cajaUpload {
+			height: 45%;
+			float: left;
+		    margin-top: 22px;
+			margin-left: 1150px;
+		}
+
+		#cajaLogo {
+		    float: left;
+		    margin-left: 40px;
+		    margin-top: 26px;
+		}
+		
+		#cajaLogo a {
+			color: white;
+		    width: 100%;
+		    height: 100%;
+		    display: block;
+		    text-align: center;
+		    font-size: 25px;
+		    font-weight: bold;
+		    text-decoration: none;
+		}
+		
+		#cajaCerrarSesion {
+		    height: 45%;
+		    float: right;
+		    margin-right: 50px;
+		    margin-top: 22px;
+		}
+		
+		#formulario {
+		    background-color: rgb(33, 37, 41);
+		    width: 430px;
+		    height: 500px;
+		    margin: auto;
+		    margin-top: 30px;
+		    overflow: auto;
+		    border-radius: 15px;
+		    border: 1px solid white;
+		}
+		
+		input {
+		    display: block;
+		    width: 290px;
+		    height: 25px;
+		    margin: auto;
+		    margin-top: 48px;
+		    border-radius: 5px;
+		    background: none;
+		    border: none;
+		    border-bottom: 1px solid white;
+		    outline: 0px;
+		    color: white;
+		}
+		
+		#formulario a {
+		    display: block;
+		    margin: auto;
+		    width: 150px;
+		    color: white;
+		    margin-top: 10px;
+		    font-size: 14px;
+		    text-align: center;
+		}
+				
+		#inputSubmitEditar {
+			display: block; 
+			margin: auto;
+		 	margin-top: 50px;
+		    background-color: rgb(108, 117, 125);
+		    width: 130px;
+		    height: 50px;
+		    cursor: pointer;
+		    border: none;
+		}
+		
+		#inputSubmitEditar:hover {
+		    background-color: rgb(92, 99, 106);
+		}
+	</style>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	
+    <form id="formulario" th:method="post" th:action="@{/editarUsuarioSubmit}" th:object="${userForm}">
+		<input class="input" type="hidden" th:field="*{id}">
+		<input class="input" type="text" th:field="*{username}" placeholder="Username">
+		<input class="input" type="email" th:field="*{email}" placeholder="Email">
+		<input class="input" type="text" th:field="*{contrasena}" placeholder="Contraseña">
+		<input class="input" type="text" th:field="*{roles}" placeholder="Rol" oninput="this.value = this.value.toUpperCase()">
+		<input id="inputSubmitEditar" type="submit" value="EDITAR">
+		<a th:href="@{/admin}">Atrás</a>
+	</form>
+</body>
+</html>

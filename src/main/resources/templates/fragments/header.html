@@ -1,0 +1,30 @@
+<header>
+    <div id="cajaLogo">
+        <a th:href="@{/}">MiniYoutube</a>
+    </div>
+	
+	<div id="cajaUpload">
+        <a th:href="@{/upload}">
+   	 		<span style="font-size: 35px; color: white;">
+            	<i class="fa-solid fa-upload"></i>
+            </span>
+        </a>
+	</div>
+	
+    <div id="cajaCerrarSesion">
+        <form id="logoutForm" th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar sesión" style="display: none;"/>
+            <a href="#" id="logoutButton">
+                <span style="font-size: 35px; color: white;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </span>
+            </a>
+        </form>
+    </div>
+    
+    <script>
+	    document.getElementById("logoutButton").addEventListener("click", function() {
+	        document.getElementById("logoutForm").submit();
+	    });
+</script>
+</header>

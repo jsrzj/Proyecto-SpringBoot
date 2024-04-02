@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro</title>
+	<link rel="stylesheet" href="css/registrar.css">
+	<script src="js/registrar.js"></script>
+</head>
+<body>
+    <form th:method="post" th:action="@{/registrarUsuario}" th:object="${userForm}">
+		<input type="hidden" th:field="*{id}">
+		
+		<input type="text" th:field="*{username}" placeholder="Username">
+		<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Errores</span>
+		
+		<input type="text" th:field="*{email}" placeholder="Email">
+		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Errores</span>
+		
+		<input type="password" th:field="*{contrasena}" placeholder="Contraseña">
+		<span th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}">Errores</span>
+		
+		<input id="inputSubmitRegistro" type="submit" value="REGISTRAR">
+		<a th:href="@{/login}">¿Ya tienes una cuenta?</a>
+	</form>
+</body>
+</html>
